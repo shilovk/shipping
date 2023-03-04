@@ -1,6 +1,6 @@
 # Shipping
 
-Move passengers(wolf, goat, cabbage) beside locations(from side, to side).
+Move passengers(wolf, goat, cabbage) between locations(from side, to side).
 
 ## Installation
 
