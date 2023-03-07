@@ -3,6 +3,7 @@ defmodule ShippingTest do
   doctest Shipping
 
   test "adventure" do
-    assert ["wolf", "cabbage", "goat"] = Shipping.adventure
+    passengers = ~w[cabbage goat wolf]a
+    assert passengers == MapSet.to_list(Shipping.adventure(passengers))
   end
 end

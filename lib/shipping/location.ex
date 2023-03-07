@@ -18,13 +18,11 @@ defmodule Shipping.Location do
 
   @impl GenServer
   def handle_call({:remove, passenger}, _from, members) do
-    members = members -- [passenger]
-    {:reply, members, members}
+    if(passenger in members, do: {:reply, :remove, MapSet.delete(members, passenger)}, else: {:reply, :error, members})
   end
 
   @impl GenServer
   def handle_call({:add, passenger}, _from, members) do
-    members = members ++ [passenger]
-    {:reply, members, members}
+    {:reply, :add, MapSet.put(members, passenger)}
   end
 end
